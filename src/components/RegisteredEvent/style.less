@@ -1,0 +1,31 @@
+.picture-frame{
+  display: inline-block;
+}
+
+.event-info {
+  display: inline-block;
+  @base-url: "";
+  	background-image: url("@{base-url}event_image.jpg");
+  width: 100%;
+  padding: 10%;
+  color: white;
+  border-bottom: 5px solid white;
+}
+
+.cell {
+  display: inline-block;
+  border: 1px solid black;
+  width: 20%;
+  padding: 1%;
+  margin: 1.5%;
+}
+
+.event-info:hover {
+    position:relative;
+    top:-10px;
+    width: 100%;
+    height: auto;
+    display:block;
+    background-repeat: no-repeat;
+    z-index:999;
+}
