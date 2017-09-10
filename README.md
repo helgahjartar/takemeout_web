@@ -7,3 +7,5 @@ The Best Event App for Reykjavík City
 ```
 website will run on localhost:3001
 
+[Warning] Registering events is deprecated at the moment. 
+
