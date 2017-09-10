@@ -21,7 +21,7 @@ class RegisteredEvent extends Component {
       <Col sm={4} md={3}>
         <div className='event-info'>
             <h2>{event.name}</h2>
-            <h4>{this.formatTime(event.clock)}{"  -  " + event.location}</h4>
+            <h4>20:00{"  -  " + event.locationName}</h4>
             <p>{event.description}</p>
             <p><i className="fa fa-wheelchair" aria-hidden="true"></i>
              &nbsp; {event.access}</p>

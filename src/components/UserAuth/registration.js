@@ -18,7 +18,7 @@ class Registration extends Component {
    handleSubmit(event) {
      event.preventDefault();
      const { createUser } = this.props;
-     this.state.passwordHash = hash(this.state.passwordHash)
+     //this.state.passwordHash = hash(this.state.passwordHash)
      createUser(this.state);
   }
 

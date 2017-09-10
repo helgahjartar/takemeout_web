@@ -125,6 +125,7 @@ class EventForm extends Component {
           <Button type="submit" onClick={this.handleSubmit}>
             Senda
           </Button>
+          <p></p>
         </form>
         }
 
@@ -137,7 +138,7 @@ class EventForm extends Component {
         }
 
         {isAuthenticated && !success && hasBeenSent && !newForm &&
-          <h3>Form ekki rétt fyllt út </h3>
+          <h3>Formið er ekki rétt fyllt út </h3>
         }
 
       </Grid>

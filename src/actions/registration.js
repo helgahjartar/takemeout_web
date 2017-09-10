@@ -24,7 +24,7 @@ function receiveEvents(events) {
 
 export function fetchEvents() {
   return dispatch => {
-    return fetch("http://localhost:8080/event/registration", {
+    return fetch("https://morning-peak-70516.herokuapp.com/event/query/events", {
       method: "GET"
     }).then(response => response.json())
       .then(json => dispatch(receiveEvents(json)))
@@ -75,7 +75,7 @@ export function createEvent(data) {
   console.log(user_token)
 
   return dispatch => {
-    return fetch("http://localhost:8080/event/registration", {
+    return fetch("https://morning-peak-70516.herokuapp.com/event/registration/event", {
       method: "POST",
       headers: {
         "Content-Type" : "application/json; charset=UTF-8",
@@ -93,7 +93,7 @@ export function createEvent(data) {
 
 export function createUser(userData) {
   return dispatch => {
-    return fetch("http://localhost:8080/user/register", {
+    return fetch("https://morning-peak-70516.herokuapp.com/user/auth/register", {
       method: "POST",
       headers: { "Content-Type" : "application/json; charset=UTF-8"},
       body: JSON.stringify(userData)
@@ -106,14 +106,17 @@ export function createUser(userData) {
 
 export function logOutUser() {
   user_token = null;
+  browserHistory.push('/');
 
-  dispatch({ type: LOGOUT })
+  return {
+    type: LOGOUT
+  }
 }
 
 export function logInUser(userData) {
 
   return dispatch => {
-    return fetch("http://localhost:8080/user/login", {
+    return fetch("https://morning-peak-70516.herokuapp.com/user/auth/login", {
       method: "POST",
       headers: { "Content-Type" : "application/json; charset=UTF-8"},
       body: JSON.stringify(userData)

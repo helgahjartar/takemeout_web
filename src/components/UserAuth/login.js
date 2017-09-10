@@ -12,13 +12,19 @@ class LogIn extends Component {
      super(props);
      this.state = {userName: '', passwordHash: ''};
      this.handleSubmit = this.handleSubmit.bind(this);
+     this.handleLogout = this.handleLogout.bind(this);
    }
 
    handleSubmit(event) {
      event.preventDefault();
      const { logInUser } = this.props;
-     this.state.passwordHash = hash(this.state.passwordHash)
+     //this.state.passwordHash = hash(this.state.passwordHash)
      logInUser(this.state);
+   }
+
+   handleLogout(event) {
+     const { logOutUser } = this.props;
+     logOutUser();
    }
 
   render() {
@@ -26,11 +32,9 @@ class LogIn extends Component {
     const { isAuthenticated, hasBeenSent } = this.props;
     const { logOutUser } = this.props;
 
-    console.log(this.props)
-
     return (
       <Grid>
-      {!hasBeenSent &&
+      {!isAuthenticated &&
         <form>
         <PageHeader>Innkráning <small>Skráðu þig inn til að skrá atburði</small></PageHeader>
            <FormGroup controlId="formBasicText">
@@ -58,16 +62,13 @@ class LogIn extends Component {
            <Button type="submit" onClick={this.handleSubmit}>
              Innskrá
            </Button>
+           {!isAuthenticated && hasBeenSent && <h3>Notendanafn eða lykilorð vitlaust </h3> }
          </form>
-     }
-
-     {!isAuthenticated && hasBeenSent &&
-      <h3>Notendanafn eða lykilorð vitlaust </h3>
-     }
+       }
 
      {isAuthenticated && hasBeenSent &&
        <div>
-        <h3> Velkomin {this.state.userName}!</h3>
+        <h3> Velkomin/n!</h3>
         <h4> Þetta er þitt notendasvæði.</h4>
          <p> Við mælum með því að þú skráir viðburð! </p>
          <Button onClick={logOutUser}> Útskráning </Button>
